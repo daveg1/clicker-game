@@ -2,7 +2,7 @@ import { setClickHandlers } from './modules/setClickerHandlers'
 import './style.css'
 
 const game = {
-	money: 1100,
+	money: 0,
 	enemy: {
 		hp: 200,
 		meta_hp: 200,
