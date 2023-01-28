@@ -1,0 +1,70 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.status-bar {
+	padding-block: 1rem;
+}
+
+#money {
+	font-size: 2rem;
+}
+
+.health-bar {
+	background-color: red;
+	height: 0.5rem;
+	margin-block: 1rem;
+}
+
+.hp {
+	background-color: green;
+	height: 100%;
+}
+
+.game {
+	padding-block: 2rem;
+}
+
+.block {
+	background: url('/dirt.png') center / contain;
+	cursor: pointer;
+	height: 250px;
+	width: 250px;
+}
+
+.upgrades {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.upgrade {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+}
+
+.upgrade__image {
+	height: 64px;
+}
+
+.upgrade__info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.upgrade__button {
+	cursor: pointer;
+	height: 2rem;
+	width: 6rem;
+}

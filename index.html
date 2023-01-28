@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Block Clicker</title>
+		<script type="module" src="/src/main.ts"></script>
+	</head>
+	<body>
+		<div class="status-bar">
+			<div id="money">$0</div>
+		</div>
+
+		<div class="game">
+			<div id="block" class="block"></div>
+			<div class="health-bar">
+				<div id="hp" class="hp"></div>
+			</div>
+		</div>
+
+		<div class="upgrades">
+			<div id="upgrade1" class="upgrade">
+				<img class="upgrade__image" src="pickaxe_wooden.png" />
+				<div class="upgrade__info">
+					<div class="upgrade__name">Wooden Pickaxe (lv.<span class="upgrade__level"></span>)</div>
+					<button class="upgrade__button">Buy ($<span class="upgrade__cost"></span>)</button>
+				</div>
+			</div>
+
+			<div id="upgrade2" class="upgrade">
+				<img class="upgrade__image" src="pickaxe_stone.png" />
+				<div class="upgrade__info">
+					<div class="upgrade__name">Stone Pickaxe (lv.<span class="upgrade__level"></span>)</div>
+					<button class="upgrade__button">Buy ($<span class="upgrade__cost"></span>)</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
