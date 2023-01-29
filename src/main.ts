@@ -82,7 +82,6 @@ function update() {
 	// Check enemy
 	if (game.currentEnemy.hp <= 0) {
 		game.money += 100
-		// todo: spawnEnemy() method
 		spawnEnemy()
 	}
 
