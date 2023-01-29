@@ -19,27 +19,38 @@ body {
 	font-size: 2rem;
 }
 
-.health-bar {
-	background-color: red;
-	height: 0.5rem;
-	margin-block: 1rem;
-}
+/* Block (enemy) */
 
-.hp {
-	background-color: green;
-	height: 100%;
-}
-
-.game {
+.block {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 	padding-block: 2rem;
 }
 
-.block {
+.block__name {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.block__asset {
 	background: url('/dirt.png') center / contain;
 	cursor: pointer;
 	height: 250px;
 	width: 250px;
 }
+
+.block__health {
+	background-color: red;
+	height: 0.5rem;
+}
+
+.block__health-segment {
+	background-color: green;
+	height: 100%;
+}
+
+/* Upgrades */
 
 .upgrades {
 	display: flex;
