@@ -113,6 +113,13 @@ function update() {
 		spawnEnemy()
 	}
 
+	upgradeElems.forEach((upgradeElem, index) => {
+		const button = upgradeElem.querySelector('.upgrade__button') as HTMLButtonElement
+		const upgrade = game.upgrades[index]
+
+		button.disabled = upgrade.cost > game.money
+	})
+
 	// Update status bar
 	moneyElem.textContent = `$${game.money}`
 	zoneElem.textContent = (game.zone + 1).toString()
@@ -128,7 +135,7 @@ window.onload = () => {
 	})
 
 	upgradeElems.forEach((upgradeElem, index) => {
-		const button = upgradeElem.querySelector('.upgrade__button') as HTMLDivElement
+		const button = upgradeElem.querySelector('.upgrade__button') as HTMLButtonElement
 		const level = upgradeElem.querySelector('.upgrade__level') as HTMLDivElement
 		const cost = upgradeElem.querySelector('.upgrade__cost') as HTMLDivElement
 		const upgrade = game.upgrades[index]
