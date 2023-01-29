@@ -12,11 +12,11 @@ body {
 }
 
 .status-bar {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+	font-size: 1.25rem;
 	padding-block: 1rem;
-}
-
-#money {
-	font-size: 2rem;
 }
 
 /* Block (enemy) */

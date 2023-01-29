@@ -5,6 +5,7 @@ const game = {
 	money: 0,
 	stage: 1,
 	zone: 0,
+	enemiesLeft: 10,
 	currentEnemy: {
 		hp: 200,
 		meta_hp: 200,
@@ -25,7 +26,10 @@ const game = {
 	],
 }
 
+// todo: store list of zones
+
 const enemyPool = [
+	// Zone 1
 	[
 		{
 			name: 'Dirt',
@@ -43,19 +47,34 @@ const enemyPool = [
 			asset: 'gravel.png',
 		},
 	],
+
+	// Zone 2
+	[
+		{
+			name: 'Stone',
+			hp: 3000,
+			asset: 'stone.png',
+		},
+	],
 ]
 
+// Status
+const moneyElem = document.querySelector('#money') as HTMLDivElement
+const zoneElem = document.querySelector('#zone') as HTMLDivElement
+const enemiesLeftElem = document.querySelector('#enemies-left') as HTMLDivElement
+
+// Block
 const blockElem = document.querySelector('#block') as HTMLDivElement
 const blockNameElem = document.querySelector('#block-name') as HTMLDivElement
-const moneyElem = document.querySelector('#money') as HTMLDivElement
 const hpElem = document.querySelector('#block-hp') as HTMLDivElement
+
+// Upgrades
 const upgradeElems = document.querySelectorAll('.upgrade') as NodeListOf<HTMLDivElement>
 
 function spawnEnemy() {
 	// Get random enemy from pool based on current stage
 	// todo: spawn enemy based on weight/chance (e.g. 10% chance for ore to spawn)
 	const pool = enemyPool[game.zone]
-	console.log(enemyPool, game.zone)
 	const enemy = pool[Math.floor(Math.random() * pool.length)]
 
 	game.currentEnemy.hp = enemy.hp
@@ -82,10 +101,24 @@ function update() {
 	// Check enemy
 	if (game.currentEnemy.hp <= 0) {
 		game.money += 100
+		game.stage++
+		game.enemiesLeft--
+
+		// Advance to next zone if all enemies killed
+		if (game.enemiesLeft === 0) {
+			game.zone++
+			game.enemiesLeft = 25
+		}
+
 		spawnEnemy()
 	}
 
+	// Update status bar
 	moneyElem.textContent = `$${game.money}`
+	zoneElem.textContent = (game.zone + 1).toString()
+	enemiesLeftElem.textContent = game.enemiesLeft.toString()
+
+	// Block HP
 	hpElem.style.width = `${(game.currentEnemy.hp / game.currentEnemy.meta_hp) * 100}%`
 }
 
