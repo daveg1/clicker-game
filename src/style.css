@@ -80,3 +80,20 @@ body {
 	height: 2rem;
 	width: 6rem;
 }
+
+/* Damage Indicator */
+.damage-indicator {
+	animation: fade-up 1500ms forwards;
+	color: #fff;
+	font-size: 2rem;
+	pointer-events: none;
+	position: absolute;
+	text-shadow: 0 2px #000;
+}
+
+@keyframes fade-up {
+	to {
+		opacity: 0;
+		transform: translateY(-5rem);
+	}
+}

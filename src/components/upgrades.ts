@@ -1,5 +1,5 @@
 import { game } from '../globals/game'
-import { setClickHandlers } from './setClickerHandlers'
+import { setClickHandlers } from '../modules/setClickerHandlers'
 
 const upgradeElems = document.querySelectorAll('.upgrade') as NodeListOf<HTMLDivElement>
 

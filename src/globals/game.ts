@@ -3,6 +3,7 @@ export const game = {
 	stage: 1,
 	zone: 0,
 	enemiesLeft: 10,
+	clickDamage: 10,
 	currentEnemy: {
 		hp: 200,
 		meta_hp: 200,

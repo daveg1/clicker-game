@@ -1,6 +1,7 @@
 import { enemyPool } from '../globals/enemyPool'
 import { game } from '../globals/game'
 import { setClickHandlers } from '../modules/setClickerHandlers'
+import { showDamageOnClick } from '../modules/showDamageOnClick'
 
 // HTML elements
 const blockAssetElem = document.querySelector('#block-asset') as HTMLDivElement
@@ -9,10 +10,8 @@ const blockHpElem = document.querySelector('#block-hp') as HTMLDivElement
 
 export function initBlock() {
 	setClickHandlers(blockAssetElem, (e: MouseEvent) => {
-		game.currentEnemy.hp -= 10
-
-		// todo: click effect
-		console.log(e.clientX, e.clientY)
+		game.currentEnemy.hp -= game.clickDamage
+		showDamageOnClick(e.clientX, e.clientY)
 	})
 }
 
