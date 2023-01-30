@@ -1,7 +1,7 @@
 import { game } from './globals/game'
-import { updateBlockHp, spawnBlock, initBlock } from './modules/block'
-import { updateStatusBar } from './modules/status-bar'
-import { initUpgrades, updateUpgrades } from './modules/upgrades'
+import { updateBlockHp, spawnBlock, initBlock } from './components/block'
+import { updateStatusBar } from './components/status-bar'
+import { initUpgrades, updateUpgrades } from './components/upgrades'
 import './style.css'
 
 // todo: store list of zones
