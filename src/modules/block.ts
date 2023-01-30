@@ -3,7 +3,7 @@ import { game } from '../globals/game'
 import { setClickHandlers } from './setClickerHandlers'
 
 // HTML elements
-const blockAssetElem = document.querySelector('#block-image') as HTMLDivElement
+const blockAssetElem = document.querySelector('#block-asset') as HTMLDivElement
 const blockNameElem = document.querySelector('#block-name') as HTMLDivElement
 const blockHpElem = document.querySelector('#block-hp') as HTMLDivElement
 
