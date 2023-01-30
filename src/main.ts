@@ -1,62 +1,9 @@
+import { enemyPool } from './globals/enemyPool'
+import { game } from './globals/game'
 import { setClickHandlers } from './modules/setClickerHandlers'
 import './style.css'
 
-const game = {
-	money: 0,
-	stage: 1,
-	zone: 0,
-	enemiesLeft: 10,
-	currentEnemy: {
-		hp: 200,
-		meta_hp: 200,
-	},
-	upgrades: [
-		{
-			name: 'Wooden Pickaxe',
-			level: 0,
-			cost: 100,
-			base_dps: 5,
-		},
-		{
-			name: 'Stone Pickaxe',
-			level: 0,
-			cost: 1000,
-			base_dps: 50,
-		},
-	],
-}
-
 // todo: store list of zones
-
-const enemyPool = [
-	// Zone 1
-	[
-		{
-			name: 'Dirt',
-			hp: 200,
-			asset: 'dirt.png',
-		},
-		{
-			name: 'Sand',
-			hp: 200,
-			asset: 'sand.png',
-		},
-		{
-			name: 'Gravel',
-			hp: 200,
-			asset: 'gravel.png',
-		},
-	],
-
-	// Zone 2
-	[
-		{
-			name: 'Stone',
-			hp: 3000,
-			asset: 'stone.png',
-		},
-	],
-]
 
 // Status
 const moneyElem = document.querySelector('#money') as HTMLDivElement
