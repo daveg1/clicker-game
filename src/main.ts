@@ -1,14 +1,10 @@
 import { game } from './globals/game'
 import { updateBlockHp, spawnBlock, initBlock } from './modules/block'
 import { setClickHandlers } from './modules/setClickerHandlers'
+import { updateStatusBar } from './modules/status-bar'
 import './style.css'
 
 // todo: store list of zones
-
-// Status
-const moneyElem = document.querySelector('#money') as HTMLDivElement
-const zoneElem = document.querySelector('#zone') as HTMLDivElement
-const enemiesLeftElem = document.querySelector('#enemies-left') as HTMLDivElement
 
 // Upgrades
 const upgradeElems = document.querySelectorAll('.upgrade') as NodeListOf<HTMLDivElement>
@@ -48,12 +44,7 @@ function update() {
 		button.disabled = upgrade.cost > game.money
 	})
 
-	// Update status bar
-	moneyElem.textContent = `$${game.money}`
-	zoneElem.textContent = (game.zone + 1).toString()
-	enemiesLeftElem.textContent = game.enemiesLeft.toString()
-
-	// Block HP
+	updateStatusBar()
 	updateBlockHp()
 }
 
