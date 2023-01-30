@@ -1,5 +1,5 @@
-import { enemyPool } from './globals/enemyPool'
 import { game } from './globals/game'
+import { updateBlockHp, spawnBlock, initBlock } from './modules/block'
 import { setClickHandlers } from './modules/setClickerHandlers'
 import './style.css'
 
@@ -10,27 +10,8 @@ const moneyElem = document.querySelector('#money') as HTMLDivElement
 const zoneElem = document.querySelector('#zone') as HTMLDivElement
 const enemiesLeftElem = document.querySelector('#enemies-left') as HTMLDivElement
 
-// Block
-const blockElem = document.querySelector('#block') as HTMLDivElement
-const blockNameElem = document.querySelector('#block-name') as HTMLDivElement
-const hpElem = document.querySelector('#block-hp') as HTMLDivElement
-
 // Upgrades
 const upgradeElems = document.querySelectorAll('.upgrade') as NodeListOf<HTMLDivElement>
-
-function spawnEnemy() {
-	// Get random enemy from pool based on current stage
-	// todo: spawn enemy based on weight/chance (e.g. 10% chance for ore to spawn)
-	const pool = enemyPool[game.zone]
-	const enemy = pool[Math.floor(Math.random() * pool.length)]
-
-	game.currentEnemy.hp = enemy.hp
-	game.currentEnemy.meta_hp = enemy.hp
-
-	console.log(enemy.name, blockNameElem)
-	blockNameElem.textContent = enemy.name
-	blockElem.style.backgroundImage = `url(${enemy.asset})`
-}
 
 // Game loop
 function update() {
@@ -57,7 +38,7 @@ function update() {
 			game.enemiesLeft = 25
 		}
 
-		spawnEnemy()
+		spawnBlock()
 	}
 
 	upgradeElems.forEach((upgradeElem, index) => {
@@ -73,13 +54,11 @@ function update() {
 	enemiesLeftElem.textContent = game.enemiesLeft.toString()
 
 	// Block HP
-	hpElem.style.width = `${(game.currentEnemy.hp / game.currentEnemy.meta_hp) * 100}%`
+	updateBlockHp()
 }
 
 window.onload = () => {
-	setClickHandlers(blockElem, () => {
-		game.currentEnemy.hp -= 10
-	})
+	initBlock()
 
 	upgradeElems.forEach((upgradeElem, index) => {
 		const button = upgradeElem.querySelector('.upgrade__button') as HTMLButtonElement
@@ -102,6 +81,6 @@ window.onload = () => {
 		})
 	})
 
-	spawnEnemy()
+	spawnBlock()
 	update()
 }
