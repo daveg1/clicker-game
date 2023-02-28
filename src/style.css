@@ -1,3 +1,9 @@
+@font-face {
+	font-family: Minecraft;
+	src: url(/font/minecraft.woff);
+	size-adjust: 80%;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -8,9 +14,35 @@ body {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Minecraft, monospace;
+	font-size: 1rem;
+	line-height: 1;
 	user-select: none;
 }
+
+button {
+	font: inherit;
+}
+
+/* Common */
+.box {
+	align-items: center;
+	background-color: #C6C6C6;
+	border: 2px solid #555;
+	display: flex;
+	height: 2rem;
+	padding-inline: 0.5rem;
+}
+
+.div::before {
+	aspect-ratio: 1/1;
+	background-color: black;
+	content: '';
+	display: block;
+	height: 0.25rem;
+}
+
+/* Status */
 
 .status-bar {
 	align-items: center;
@@ -76,9 +108,12 @@ body {
 }
 
 .upgrade__button {
+	appearance: none;
+	background-color: #F0F0F0;
+	border: 2px solid #C6C6C6;
 	cursor: pointer;
 	height: 2rem;
-	width: 6rem;
+	min-width: 6rem;
 }
 
 /* Damage Indicator */
